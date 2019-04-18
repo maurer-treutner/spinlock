@@ -5,3 +5,5 @@ add_library(${TARGET_NAME}
 )
 
 target_include_directories(${TARGET_NAME} PUBLIC include)
+
+install(TARGETS ${TARGET_NAME} LIBRARY DESTINATION lib)

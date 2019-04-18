@@ -34,11 +34,12 @@ class Builder:
         if (not os.path.exists(self.prefixPath)):
             os.mkdir(self.prefixPath) 
         os.chdir(self.buildPath)
-        subprocess.run(['cmake','-DCMAKE_PREFIX_PATH='+self.prefixPath,self.srcPath])         
+        subprocess.run(['cmake','-DCMAKE_INSTALL_PREFIX='+self.prefixPath,self.srcPath])         
 
     def doBuild(self):
         os.chdir(self.buildPath)
         subprocess.run(['cmake','--build','.'])
+        subprocess.run(['cmake','--build','.','--','install'])
 
     def doTest(self):
         os.chdir(self.buildPath)
